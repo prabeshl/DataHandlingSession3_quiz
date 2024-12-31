@@ -64,6 +64,7 @@
         </div>
         <button id="next-btn" class="btn" disabled>Next</button>
         <div id="result" class="score"></div>
+        <div id="answers" class="score" style="display:none;"></div>
     </div>
 
     <script>
@@ -94,7 +95,7 @@
                 "answer": "All of the above"
             },
             {
-                "question": "What is the result of applying \`pd.merge(df1, df2, on='key')\`?",
+                "question": "What is the result of applying `pd.merge(df1, df2, on='key')`?",
                 "options": ["An intersection of df1 and df2 on 'key'", "A union of df1 and df2 on 'key'", "A left join", "A right join"],
                 "answer": "An intersection of df1 and df2 on 'key'"
             },
@@ -104,32 +105,32 @@
                 "answer": "All of the above"
             },
             {
-                "question": "What is the function of \`np.where(condition, x, y)\`?",
+                "question": "What is the function of `np.where(condition, x, y)`?",
                 "options": ["Applies x where condition is True, otherwise y", "Filters rows based on condition", "Drops NaN values", "Replaces all values with y"],
                 "answer": "Applies x where condition is True, otherwise y"
             },
             {
-                "question": "What does \`df.iterrows()\` return?",
+                "question": "What does `df.iterrows()` return?",
                 "options": ["Index and row as a tuple", "Row index and data as a Series", "All rows at once", "Column-wise iteration"],
                 "answer": "Row index and data as a Series"
             },
             {
                 "question": "Which operation can handle missing values during aggregation?",
-                "options": ["Using \`skipna=True\`", "Using \`fillna()\`", "Dropping rows before aggregation", "All of the above"],
+                "options": ["Using `skipna=True`", "Using `fillna()`", "Dropping rows before aggregation", "All of the above"],
                 "answer": "All of the above"
             },
             {
-                "question": "Which of the following is a valid use of \`pd.concat()\`?",
+                "question": "Which of the following is a valid use of `pd.concat()`?",
                 "options": ["Concatenating multiple DataFrames", "Combining rows from different files", "Adding new columns", "All of the above"],
                 "answer": "All of the above"
             },
             {
-                "question": "What does \`df.groupby('A')['B'].mean()\` return?",
+                "question": "What does `df.groupby('A')['B'].mean()` return?",
                 "options": ["Mean of column B grouped by A", "Sum of column A grouped by B", "All columns grouped by A", "Filtered rows"],
                 "answer": "Mean of column B grouped by A"
             },
             {
-                "question": "What is the result of a vectorized operation like \`arr1 + arr2\` in NumPy?",
+                "question": "What is the result of a vectorized operation like `arr1 + arr2` in NumPy?",
                 "options": ["Element-wise addition", "Dot product", "Matrix inversion", "Scalar addition"],
                 "answer": "Element-wise addition"
             },
@@ -146,6 +147,7 @@
         const quizContainer = document.getElementById('quiz');
         const nextButton = document.getElementById('next-btn');
         const resultContainer = document.getElementById('result');
+        const answersContainer = document.getElementById('answers');
 
         function displayQuestion() {
             const question = quizQuestions[currentQuestionIndex];
@@ -188,6 +190,10 @@
             } else {
                 resultContainer.innerHTML += '<br>💪 Keep practicing to improve!';
             }
+
+            const correctAnswers = quizQuestions.map((q, i) => `${i + 1}. ${q.answer}`).join('<br>');
+            answersContainer.innerHTML = `<h3>Correct Answers:</h3><p>${correctAnswers}</p>`;
+            answersContainer.style.display = 'block';
         }
 
         nextButton.addEventListener('click', () => {
