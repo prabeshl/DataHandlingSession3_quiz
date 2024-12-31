@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive Quiz</title>
+    <title>Session 3 Gamified Quiz</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -70,26 +69,75 @@
     <script>
         const quizQuestions = [
             {
-                question: "What is the purpose of a return statement in a function?",
-                options: ["Terminate a function", "Return a value to the caller", "Print a message", "None of the above"],
-                answer: "Return a value to the caller"
+                "question": "What is the main benefit of transposing a dataset?",
+                "options": ["To merge two datasets", "To switch rows and columns for reshaping data", "To group data by columns", "To create a new index"],
+                "answer": "To switch rows and columns for reshaping data"
             },
             {
-                question: "Which of these is a correct function definition in Python?",
-                options: [
-                    "def my_function: return 5",
-                    "def my_function(): return 5",
-                    "function my_function(): return 5",
-                    "function my_function: return 5"
-                ],
-                answer: "def my_function(): return 5"
+                "question": "Which type of join includes all rows from both datasets?",
+                "options": ["Inner Join", "Outer Join", "Left Join", "Right Join"],
+                "answer": "Outer Join"
             },
             {
-                question: "What does the following code do?\ndef add(a, b):\n    return a + b",
-                options: ["Adds two numbers", "Subtracts two numbers", "Multiplies two numbers", "None of the above"],
-                answer: "Adds two numbers"
+                "question": "What function is typically used for aggregating data by sum or mean?",
+                "options": ["filter()", "groupby()", "aggregate()", "sum()"],
+                "answer": "groupby()"
             },
-            // Additional questions...
+            {
+                "question": "Which of the following is an advantage of vectorized operations in Python?",
+                "options": ["They require loops for execution", "They are slower for large datasets", "They utilize low-level optimizations for speed", "They work only with strings"],
+                "answer": "They utilize low-level optimizations for speed"
+            },
+            {
+                "question": "What is the purpose of using loops for data processing?",
+                "options": ["To automate repetitive tasks", "To process multiple files iteratively", "To apply custom logic to datasets", "All of the above"],
+                "answer": "All of the above"
+            },
+            {
+                "question": "What is the result of applying \`pd.merge(df1, df2, on='key')\`?",
+                "options": ["An intersection of df1 and df2 on 'key'", "A union of df1 and df2 on 'key'", "A left join", "A right join"],
+                "answer": "An intersection of df1 and df2 on 'key'"
+            },
+            {
+                "question": "Which method can normalize values in a DataFrame column?",
+                "options": ["Using min-max scaling", "Using z-score normalization", "Dividing by the maximum value", "All of the above"],
+                "answer": "All of the above"
+            },
+            {
+                "question": "What is the function of \`np.where(condition, x, y)\`?",
+                "options": ["Applies x where condition is True, otherwise y", "Filters rows based on condition", "Drops NaN values", "Replaces all values with y"],
+                "answer": "Applies x where condition is True, otherwise y"
+            },
+            {
+                "question": "What does \`df.iterrows()\` return?",
+                "options": ["Index and row as a tuple", "Row index and data as a Series", "All rows at once", "Column-wise iteration"],
+                "answer": "Row index and data as a Series"
+            },
+            {
+                "question": "Which operation can handle missing values during aggregation?",
+                "options": ["Using \`skipna=True\`", "Using \`fillna()\`", "Dropping rows before aggregation", "All of the above"],
+                "answer": "All of the above"
+            },
+            {
+                "question": "Which of the following is a valid use of \`pd.concat()\`?",
+                "options": ["Concatenating multiple DataFrames", "Combining rows from different files", "Adding new columns", "All of the above"],
+                "answer": "All of the above"
+            },
+            {
+                "question": "What does \`df.groupby('A')['B'].mean()\` return?",
+                "options": ["Mean of column B grouped by A", "Sum of column A grouped by B", "All columns grouped by A", "Filtered rows"],
+                "answer": "Mean of column B grouped by A"
+            },
+            {
+                "question": "What is the result of a vectorized operation like \`arr1 + arr2\` in NumPy?",
+                "options": ["Element-wise addition", "Dot product", "Matrix inversion", "Scalar addition"],
+                "answer": "Element-wise addition"
+            },
+            {
+                "question": "What is a common error when looping through files in Python?",
+                "options": ["File not found", "Incorrect path", "Permission error", "All of the above"],
+                "answer": "All of the above"
+            }
         ];
 
         let currentQuestionIndex = 0;
